@@ -180,6 +180,8 @@ export function shr(): void
   LCD.shr() // move the screen to the right
   ```
 
+---
+
 > Open this page at [https://bplab-dev.github.io/pxt-bplab-lcd/](https://bplab-dev.github.io/pxt-bplab-lcd/)
 
 ## Use as Extension
