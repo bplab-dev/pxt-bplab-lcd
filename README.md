@@ -13,29 +13,31 @@ This extension allows you to control an I2C LCD1602 display with the micro:bit.
 
 ### 🔍 Summary: What each block does
 
-| **Block ID**                    | **Function**                                  |
-|----------------------------------|----------------------------------------------|
-| `I2C_LCD1620_SET_ADDRESS`       | Initialise LCD and set I2C address          |
-| `I2C_LCD1620_SHOW_NUMBER`       | Show a number in a specific location        |
-| `I2C_LCD1620_SHOW_STRING`       | Show a string at a specific location        |
-| `I2C_LCD1620_ON`                | Switch on the LCD screen                    |
-| `I2C_LCD1620_OFF`               | Switch off the LCD screen                   |
-| `I2C_LCD1620_CLEAR`             | Clear the screen                            |
-| `I2C_LCD1620_BACKLIGHT_ON`      | Turn on the backlight                       |
-| `I2C_LCD1620_BACKLIGHT_OFF`     | Turn off the backlight                      |
-| `I2C_LCD1620_SHL`               | Shift screen to the left                    |
-| `I2C_LCD1620_SHR`               | Shift screen to the right                   |
+## 📌 I2C LCD1602 Extension - Block Descriptions  
 
-### 1. LCD Initialisation Block
+| **Block ID**                                  | **Function**                                      |
+|----------------------------------------------|--------------------------------------------------|
+| [`I2C_LCD1620_SET_ADDRESS`](#1-lcd-initialization-block) | Initialize LCD and set I2C address              |
+| [`I2C_LCD1620_SHOW_NUMBER`](#2-number-display-block)     | Show a number in a specific location            |
+| [`I2C_LCD1620_SHOW_STRING`](#3-string-display-block)     | Show a string at a specific location            |
+| [`I2C_LCD1620_ON`](#4-lcd-onoff-block)                 | Switch on the LCD screen                        |
+| [`I2C_LCD1620_OFF`](#4-lcd-onoff-block)                | Switch off the LCD screen                       |
+| [`I2C_LCD1620_CLEAR`](#5-screen-clear-block)           | Clear the screen                                |
+| [`I2C_LCD1620_BACKLIGHT_ON`](#6-backlight-onoff-block)  | Turn on the backlight                           |
+| [`I2C_LCD1620_BACKLIGHT_OFF`](#6-backlight-onoff-block) | Turn off the backlight                          |
+| [`I2C_LCD1620_SHL`](#7-screen-shift-block)             | Shift screen to the left                        |
+| [`I2C_LCD1620_SHR`](#7-screen-shift-block)             | Shift screen to the right                       |
+
+### 1. LCD Initialization Block
 
 ```typescript
-//% blockId='I2C_LCD1620_SET_ADDRESS' block="LCD initialise with Address %addr'
+//% blockId='I2C_LCD1620_SET_ADDRESS' block="LCD initialize with Address %addr'
 export function LCDInit(Addr: number)
 ```
 
 - 🔹 Description
 
-  - Initialises the LCD and sets the I2C address.
+  - Initializes the LCD and sets the I2C address.
   - If Addr == 0, it will automatically seek the I2C address.
   - Sets to 4-bit mode and performs basic LCD setup.
 
@@ -51,8 +53,8 @@ export function LCDInit(Addr: number)
 - ✅ Usage examples
 
   ```typescript
-  LCD.LcdInit(39) // Initialise the LCD with I2C address 39 (0x27)
-  LCD.LcdInit(0) // Initialise LCD after autodetection
+  LCD.LcdInit(39) // Initialize the LCD with I2C address 39 (0x27)
+  LCD.LcdInit(0) // Initialize LCD after autodetection
   ```
 
 ### 2. Number display block
@@ -66,7 +68,6 @@ export function ShowNumber(n: number, x: number, y: number): void
 
   - This block outputs a number at a specific position (x, y).
   - It calls ShowString() after converting the number to a string.
-
 
 - ✅ Usage example
 
@@ -97,7 +98,7 @@ export function ShowString(s: string, x: number, y: number): void
   LCD.ShowString('World', 5, 1) // Displays 'World' at position (5,1)
   ```
 
-### 4. LCD on/off block
+### 4. LCD ON/OFF block
 
 ```typescript
 //% blockId='I2C_LCD1620_ON' block="turn on LCD'
@@ -128,7 +129,7 @@ export function clear(): void
 
 - 🔹 Description
 
-  - Initialises the LCD screen by sending the cmd(0x01) command.
+  - Initializes the LCD screen by sending the cmd(0x01) command.
   - Move the cursor to the (0,0) position.
 
 - ✅ Usage example
@@ -159,7 +160,7 @@ export function BacklightOff(): void
   LCD.BacklightOff() // switch off the backlight
   ```
 
-### 7. Screen Shift (Shift) block
+### 7. Screen Shift block
 
 ```typescript
 //% blockId='I2C_LCD1620_SHL' block="Shift Left'
