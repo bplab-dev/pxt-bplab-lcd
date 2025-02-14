@@ -26,7 +26,7 @@ This extension allows you to control an I2C LCD1602 display with the micro:bit.
 | `I2C_LCD1620_SHL`               | Shift screen to the left                    |
 | `I2C_LCD1620_SHR`               | Shift screen to the right                   |
 
-### 🖥️ 1. LCD Initialisation Block
+### 1. LCD Initialisation Block
 
 ```typescript
 //% blockId='I2C_LCD1620_SET_ADDRESS' block="LCD initialise with Address %addr'
@@ -50,12 +50,12 @@ export function LCDInit(Addr: number)
 
 - ✅ Usage examples
 
-```typescript
-LCD.LcdInit(39) // Initialise the LCD with I2C address 39 (0x27)
-LCD.LcdInit(0) // Initialise LCD after autodetection
-```
+  ```typescript
+  LCD.LcdInit(39) // Initialise the LCD with I2C address 39 (0x27)
+  LCD.LcdInit(0) // Initialise LCD after autodetection
+  ```
 
-### 🔢 2. Number display block
+### 2. Number display block
 
 ```typescript
 //% blockId='I2C_LCD1620_SHOW_NUMBER' block="show number %n|at x %x|y %y'
@@ -74,7 +74,7 @@ export function ShowNumber(n: number, x: number, y: number): void
   LCD.ShowNumber(123, 0, 0) // print '123' at position (0,0)
   ```
 
-### 📝 3. String display block
+### 3. String display block
 
 ```typescript
 //% blockId='I2C_LCD1620_SHOW_STRING' block="show string %s|at x %x|y %y'
@@ -97,7 +97,7 @@ export function ShowString(s: string, x: number, y: number): void
   LCD.ShowString('World', 5, 1) // Displays 'World' at position (5,1)
   ```
 
-### 💡 4. LCD on/off block
+### 4. LCD on/off block
 
 ```typescript
 //% blockId='I2C_LCD1620_ON' block="turn on LCD'
@@ -119,7 +119,7 @@ export function off(): void
   LCD.off() // switch off the LCD
   ```
 
-### 🧹 5. Screen clear block
+### 5. Screen clear block
 
 ```typescript
 //% blockId='I2C_LCD1620_CLEAR' block="clear LCD'
@@ -137,7 +137,7 @@ export function clear(): void
   LCD.clear() // Clear the screen
   ```
 
-### 💡 6. Backlight ON/OFF block
+### 6. Backlight ON/OFF block
 
 ```typescript
 //% blockId='I2C_LCD1620_BACKLIGHT_ON' block="turn on backlight'
@@ -159,7 +159,7 @@ export function BacklightOff(): void
   LCD.BacklightOff() // switch off the backlight
   ```
 
-### 📤 7. Screen Shift (Shift) block
+### 7. Screen Shift (Shift) block
 
 ```typescript
 //% blockId='I2C_LCD1620_SHL' block="Shift Left'
