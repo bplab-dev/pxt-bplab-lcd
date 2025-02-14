@@ -1,5 +1,5 @@
 {
-    "name": "LCD - bplab",
+    "name": "lcd-bplab",
     "version": "0.0.3",
     "description": "",
     "dependencies": {
