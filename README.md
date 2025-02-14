@@ -13,8 +13,6 @@ This extension allows you to control an I2C LCD1602 display with the micro:bit.
 
 ### 🔍 Summary: What each block does
 
-## 📌 I2C LCD1602 Extension - Block Descriptions  
-
 | **Block ID**                                  | **Function**                                      |
 |----------------------------------------------|--------------------------------------------------|
 | [`I2C_LCD1620_SET_ADDRESS`](#1-lcd-initialization-block) | Initialize LCD and set I2C address              |
