@@ -1,5 +1,7 @@
 # LCD Extension for MakeCode
 
+![LCD Image](./icon.png)
+
 This extension allows you to control an I2C LCD1602 display with the micro:bit.
 
 ## 🚀 Features
