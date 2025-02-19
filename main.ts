@@ -4,40 +4,62 @@
 //% weight=1 color=#0fbc11 icon="\uf0ad"
 namespace LCD {
     let i2cAddr: number // 0x3F: PCF8574A, 0x27: PCF8574 
-    let BK: number      // Backlight control
-    let RS: number      // Command/Data selection
+    let BK: number      // Backlight control (8: ON, 0: OFF)
+    let RS: number      // Register selection(0: Command, 1: Data)
+
+    export enum I2CLCDAddress {
+        AutoDetect = 0,
+        PCF8574 = 39,   // 0x27
+        PCF8574A = 63   // 0x3f
+    }
+
+    export enum LCDCommand {
+        NOP = 0x00,             // NOP(No Operation): Do nothing. Use for delay or synchronization
+        ClearDisplay = 0x01,    // Clear everything on the screen and move the cursor to the home position (0,0). Wait 1.52 ms after execution
+        EntryModeSet = 0x06,    // Set cursor movement direction to right. Cursor automatically moves to the right when typing text
+        
+        DisplayOff = 0x08,      // Turn off the display. Data is retained
+        DisplayOn = 0x0C,       // Turn on the screen and hide the cursor
+        ShiftDisplayLeft = 0x18,    // Move full-screen content one space to the left
+        ShiftDisplayRight = 0x1C,    // Move full-screen content one space to the right
+
+        Set4bitMode = 0x28,    // Set 4-bit mode, two-line display, 5x8 dot font
+        Set4bitModeInit = 0x33, // Initiate 4-bit mode initialization.
+
+        AddrTo0 = 0x80  // Move the cursor to the start of the first line Set the DDRAM address to 0
+    }
 
     // LCD register setup
-    function setreg(d: number) {
+    function _setreg(d: number) {
         pins.i2cWriteNumber(i2cAddr, d, NumberFormat.Int8LE)
         basic.pause(1)
     }
 
     // Send data through I2C bus
-    function set(d: number) {
+    function _set(d: number) {
         d = d & 0xF0
         d = d + BK + RS
-        setreg(d)
-        setreg(d + 4)
-        setreg(d)
+        _setreg(d)
+        _setreg(d + 4)
+        _setreg(d)
     }
 
     // Send command
-    function cmd(d: number) {
+    function _cmd(d: number) {
         RS = 0
-        set(d)
-        set(d << 4)
+        _set(d)
+        _set(d << 4)
     }
 
     // Send data
-    function dat(d: number) {
+    function _dat(d: number) {
         RS = 1
-        set(d)
-        set(d << 4)
+        _set(d)
+        _set(d << 4)
     }
 
     // Auto detect LCD address
-    function AutoAddr() {
+    function _autoAddr() {
         let k = true
         let addr = 0x20
         let d1 = 0, d2 = 0
@@ -71,21 +93,21 @@ namespace LCD {
     //% blockId="I2C_LCD1620_SET_ADDRESS" block="LCD initialize with Address %addr"
     //% weight=100 blockGap=8
     //% parts=LCD1602_I2C trackArgs=0
-    export function LcdInit(Addr: number) {
-        if (Addr == 0) i2cAddr = AutoAddr()
+    export function lcdInit(Addr: I2CLCDAddress) {
+        if (Addr == 0) i2cAddr = _autoAddr()
         else i2cAddr = Addr
         BK = 8
         RS = 0
-        cmd(0x33)       // Set 4-bit mode
+        _cmd(LCDCommand.Set4bitModeInit)       // Set 4-bit mode
         basic.pause(5)
-        set(0x30)
+        _set(0x30)
         basic.pause(5)
-        set(0x20)
+        _set(0x20)
         basic.pause(5)
-        cmd(0x28)       // Set mode
-        cmd(0x0C)
-        cmd(0x06)
-        cmd(0x01)       // Clear screen
+        _cmd(LCDCommand.Set4bitMode)       // Set mode
+        _cmd(LCDCommand.DisplayOn)
+        _cmd(LCDCommand.EntryModeSet)
+        _cmd(LCDCommand.ClearDisplay)       // Clear screen
     }
 
     /**
@@ -99,9 +121,9 @@ namespace LCD {
     //% x.min=0 x.max=15
     //% y.min=0 y.max=1
     //% parts=LCD1602_I2C trackArgs=0
-    export function ShowNumber(n: number, x: number, y: number): void {
+    export function showNumber(n: number, x: number, y: number): void {
         let s = n.toString()
-        ShowString(s, x, y)
+        showString(s, x, y)
     }
 
     /**
@@ -115,7 +137,7 @@ namespace LCD {
     //% x.min=0 x.max=15
     //% y.min=0 y.max=1
     //% parts=LCD1602_I2C trackArgs=0
-    export function ShowString(s: string, x: number, y: number): void {
+    export function showString(s: string, x: number, y: number): void {
         let a: number
 
         if (y > 0)
@@ -123,10 +145,10 @@ namespace LCD {
         else
             a = 0x80
         a += x
-        cmd(a)
+        _cmd(a)
 
         for (let i = 0; i < s.length; i++) {
-            dat(s.charCodeAt(i))
+            _dat(s.charCodeAt(i))
         }
     }
 
@@ -137,7 +159,7 @@ namespace LCD {
     //% weight=81 blockGap=8
     //% parts=LCD1602_I2C trackArgs=0
     export function on(): void {
-        cmd(0x0C)
+        _cmd(LCDCommand.DisplayOn)
     }
 
     /**
@@ -147,7 +169,7 @@ namespace LCD {
     //% weight=80 blockGap=8
     //% parts=LCD1602_I2C trackArgs=0
     export function off(): void {
-        cmd(0x08)
+        _cmd(LCDCommand.DisplayOff)
     }
 
     /**
@@ -157,7 +179,7 @@ namespace LCD {
     //% weight=85 blockGap=8
     //% parts=LCD1602_I2C trackArgs=0
     export function clear(): void {
-        cmd(0x01)
+        _cmd(LCDCommand.ClearDisplay)
     }
 
     /**
@@ -166,9 +188,9 @@ namespace LCD {
     //% blockId="I2C_LCD1620_BACKLIGHT_ON" block="turn on backlight"
     //% weight=71 blockGap=8
     //% parts=LCD1602_I2C trackArgs=0
-    export function BacklightOn(): void {
+    export function backlightOn(): void {
         BK = 8
-        cmd(0)
+        _cmd(LCDCommand.NOP)
     }
 
     /**
@@ -177,9 +199,9 @@ namespace LCD {
     //% blockId="I2C_LCD1620_BACKLIGHT_OFF" block="turn off backlight"
     //% weight=70 blockGap=8
     //% parts=LCD1602_I2C trackArgs=0
-    export function BacklightOff(): void {
+    export function backlightOff(): void {
         BK = 0
-        cmd(0)
+        _cmd(LCDCommand.NOP)
     }
 
     /**
@@ -189,7 +211,7 @@ namespace LCD {
     //% weight=61 blockGap=8
     //% parts=LCD1602_I2C trackArgs=0
     export function shl(): void {
-        cmd(0x18)
+        _cmd(LCDCommand.ShiftDisplayLeft)
     }
 
     /**
@@ -199,6 +221,6 @@ namespace LCD {
     //% weight=60 blockGap=8
     //% parts=LCD1602_I2C trackArgs=0
     export function shr(): void {
-        cmd(0x1C)
+        _cmd(LCDCommand.ShiftDisplayRight)
     }
 }
