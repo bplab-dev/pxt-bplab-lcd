@@ -8,7 +8,9 @@
     "files": [
         "main.blocks",
         "main.ts",
-        "README.md"
+        "README.md",
+        "_locales/ko/lcd-bplab-jsdoc-strings.json",
+        "_locales/ko/lcd-bplab-strings.json"
     ],
     "testFiles": [
         "test.ts"

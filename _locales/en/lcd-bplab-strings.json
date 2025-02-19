@@ -1,0 +1,14 @@
+{
+  "LCD.backlightOff|block": "turn off backlight",
+  "LCD.backlightOn|block": "turn on backlight",
+  "LCD.clear|block": "clear LCD",
+  "LCD.lcdInit|block": "LCD initialize with Address %addr",
+  "LCD.off|block": "turn off LCD",
+  "LCD.on|block": "turn on LCD",
+  "LCD.shl|block": "Shift Left",
+  "LCD.showNumber|block": "show number %n|at x %x|y %y",
+  "LCD.showString|block": "show string %s|at x %x|y %y",
+  "LCD.shr|block": "Shift Right",
+  "LCD|block": "LCD",
+  "{id:category}LCD": "LCD"
+}
