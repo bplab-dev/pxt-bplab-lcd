@@ -10,6 +10,7 @@ This extension allows you to control an I2C LCD1602 display with the micro:bit.
 - Can display numbers, strings using MakeCode blocks
 - Also supports LCD backlight and screen pan function
 - Can be registered as a MakeCode extension for easy use
+- Support for Korean
 
 ## Blocks
 
