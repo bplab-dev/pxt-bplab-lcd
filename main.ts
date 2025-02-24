@@ -3,7 +3,7 @@
  */
 //% weight=1 color=#0fbc11 icon="\uf0ad"
 namespace lcd {
-    let i2cAddr: number // 0x3F: PCF8574A, 0x27: PCF8574 
+    let i2cAddr: number // 0x3F: PCF8574A, 0x27: PCF8574
     let BK: number      // Backlight control (8: ON, 0: OFF)
     let RS: number      // Register selection(0: Command, 1: Data)
 
@@ -17,7 +17,7 @@ namespace lcd {
         NOP = 0x00,             // NOP(No Operation): Do nothing. Use for delay or synchronization
         ClearDisplay = 0x01,    // Clear everything on the screen and move the cursor to the home position (0,0). Wait 1.52 ms after execution
         EntryModeSet = 0x06,    // Set cursor movement direction to right. Cursor automatically moves to the right when typing text
-        
+
         DisplayOff = 0x08,      // Turn off the display. Data is retained
         DisplayOn = 0x0C,       // Turn on the screen and hide the cursor
         ShiftDisplayLeft = 0x18,    // Move full-screen content one space to the left
@@ -93,7 +93,7 @@ namespace lcd {
     //% blockId="I2C_LCD1620_SET_ADDRESS" block="LCD initialize with Address %addr"
     //% weight=100 blockGap=8
     //% parts=LCD1602_I2C trackArgs=0
-    //% help="https://github.com/bplab-dev/pxt-bplab-lcd?tab=readme-ov-file#1-lcd-initialization-block-lcdlcdinit"
+    //% help=github:bplab-dev/pxt-bplab-lcd/README
     export function lcdInit(Addr: I2CLCDAddress) {
         if (Addr == 0) i2cAddr = _autoAddr()
         else i2cAddr = Addr

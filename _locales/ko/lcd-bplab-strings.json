@@ -10,5 +10,5 @@
   "lcd.showString|block": "문자 %s 표시(위치 x %x|y %y)",
   "lcd.shr|block": "오른쪽으로 이동",
   "lcd|block": "LCD",
-  "{id:category}LCD": "LCD"
+  "{id:category}Lcd": "LCD"
 }
