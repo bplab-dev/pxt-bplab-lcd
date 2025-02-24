@@ -49,11 +49,11 @@ This extension allows you to control an I2C LCD1602 display with the micro:bit.
 - ✅ Usage examples
 
   ```blocks
-  lcd.lcdInit(lcd.I2CLCDAddress.PCF8574)    // Initialize the LCD with I2C address 39 (0x27)
+  lcd.lcdInit(lcd.I2CLCDAddress.PCF8574)
   ```
 
   ```blocks
-  lcd.lcdInit(lcd.I2CLCDAddress.AutoDetect) // Initialize LCD after autodetection
+  lcd.lcdInit(lcd.I2CLCDAddress.AutoDetect)
   ```
 
 ### 2. Number display block
@@ -66,7 +66,7 @@ This extension allows you to control an I2C LCD1602 display with the micro:bit.
 - ✅ Usage example
 
   ```blocks
-  lcd.showNumber(123, 0, 0) // print '123' at position (0,0)
+  lcd.showNumber(123, 0, 0)
   ```
 
 ### 3. String display block
@@ -83,8 +83,8 @@ This extension allows you to control an I2C LCD1602 display with the micro:bit.
 - ✅ Usage example
 
   ```blocks
-  lcd.showString('Hello', 0, 0) // print 'Hello' at position (0,0)
-  lcd.showString('World', 5, 1) // Displays 'World' at position (5,1)
+  lcd.showString('Hello', 0, 0)
+  lcd.showString('World', 5, 1)
   ```
 
 ### 4. LCD ON/OFF block
@@ -97,8 +97,8 @@ This extension allows you to control an I2C LCD1602 display with the micro:bit.
 - ✅ Usage example
 
   ```blocks
-  lcd.on()  // Switch on the LCD
-  lcd.off() // Switch off the LCD
+  lcd.on()
+  lcd.off()
   ```
 
 ### 5. Screen clear block
@@ -111,7 +111,7 @@ This extension allows you to control an I2C LCD1602 display with the micro:bit.
 - ✅ Usage example
 
   ```blocks
-  lcd.clear()   // Clear the screen
+  lcd.clear()
   ```
 
 ### 6. Backlight ON/OFF block
@@ -124,8 +124,8 @@ This extension allows you to control an I2C LCD1602 display with the micro:bit.
 - ✅ Usage example
 
   ```blocks
-  lcd.backlightOn()     // Switch the backlight on
-  lcd.backlightOff()    // Switch off the backlight
+  lcd.backlightOn()
+  lcd.backlightOff()
   ```
 
 ### 7. Screen Shift block
@@ -138,8 +138,8 @@ This extension allows you to control an I2C LCD1602 display with the micro:bit.
 - ✅ Usage example
 
   ```blocks
-  lcd.shl() // Move the screen to the left
-  lcd.shr() // move the screen to the right
+  lcd.shl()
+  lcd.shr()
   ```
 
 ## 📜 License
