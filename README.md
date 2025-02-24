@@ -29,16 +29,7 @@ This extension allows you to control an I2C LCD1602 display with the micro:bit.
 | [`I2C_LCD1620_SHL`](#7-screen-shift-block)             | Shift screen to the left                        |
 | [`I2C_LCD1620_SHR`](#7-screen-shift-block)             | Shift screen to the right                       |
 
-### 1. LCD Initialization Block #LCDlcdInit
-
-```typescript
-//% blockId='I2C_LCD1620_SET_ADDRESS' block="LCD initialize with Address %addr'
-export function LCDInit(Addr: number)
-```
-
-```blocks
-lcd.lcdInit(0)
-```
+### 1. LCD Initialization Block #lcdlcdInit
 
 - 🔹 Description
 
@@ -57,17 +48,12 @@ lcd.lcdInit(0)
 
 - ✅ Usage examples
 
-  ```typescript
-  LCD.LcdInit(39) // Initialize the LCD with I2C address 39 (0x27)
-  LCD.LcdInit(0) // Initialize LCD after autodetection
+  ```blocks
+  lcd.lcdInit(39)   // Initialize the LCD with I2C address 39 (0x27)
+  lcd.lcdInit(0)    // Initialize LCD after autodetection
   ```
 
 ### 2. Number display block
-
-```typescript
-//% blockId='I2C_LCD1620_SHOW_NUMBER' block="show number %n|at x %x|y %y'
-export function ShowNumber(n: number, x: number, y: number): void
-```
 
 - 🔹 Description
 
@@ -76,16 +62,11 @@ export function ShowNumber(n: number, x: number, y: number): void
 
 - ✅ Usage example
 
-  ```typescript
-  LCD.ShowNumber(123, 0, 0) // print '123' at position (0,0)
+  ```blocks
+  lcd.showNumber(123, 0, 0) // print '123' at position (0,0)
   ```
 
 ### 3. String display block
-
-```typescript
-//% blockId='I2C_LCD1620_SHOW_STRING' block="show string %s|at x %x|y %y'
-export function ShowString(s: string, x: number, y: number): void
-```
 
 - 🔹 Description
 
@@ -98,20 +79,12 @@ export function ShowString(s: string, x: number, y: number): void
 
 - ✅ Usage example
 
-  ```typescript
-  LCD.ShowString('Hello', 0, 0) // print 'Hello' at position (0,0)
-  LCD.ShowString('World', 5, 1) // Displays 'World' at position (5,1)
+  ```blocks
+  lcd.showString('Hello', 0, 0) // print 'Hello' at position (0,0)
+  lcd.showString('World', 5, 1) // Displays 'World' at position (5,1)
   ```
 
 ### 4. LCD ON/OFF block
-
-```typescript
-//% blockId='I2C_LCD1620_ON' block="turn on LCD'
-export function on(): void
-
-//% blockId='I2C_LCD1620_OFF' block="turn off LCD'
-export function off(): void
-```
 
 - 🔹 Description
 
@@ -120,17 +93,12 @@ export function off(): void
 
 - ✅ Usage example
 
-  ```typescript
-  LCD.on() // Switch on the LCD
-  LCD.off() // switch off the LCD
+  ```blocks
+  lcd.on()  // Switch on the LCD
+  lcd.off() // Switch off the LCD
   ```
 
 ### 5. Screen clear block
-
-```typescript
-//% blockId='I2C_LCD1620_CLEAR' block="clear LCD'
-export function clear(): void
-```
 
 - 🔹 Description
 
@@ -139,19 +107,11 @@ export function clear(): void
 
 - ✅ Usage example
 
-  ```typescript
-  LCD.clear() // Clear the screen
+  ```blocks
+  lcd.clear()   // Clear the screen
   ```
 
 ### 6. Backlight ON/OFF block
-
-```typescript
-//% blockId='I2C_LCD1620_BACKLIGHT_ON' block="turn on backlight'
-export function BacklightOn(): void
-
-//% blockId='I2C_LCD1620_BACKLIGHT_OFF' block="turn off backlight'
-export function BacklightOff(): void
-```
 
 - 🔹 Description
 
@@ -160,20 +120,12 @@ export function BacklightOff(): void
 
 - ✅ Usage example
 
-  ```typescript
-  LCD.BacklightOn() // switch the backlight on
-  LCD.BacklightOff() // switch off the backlight
+  ```blocks
+  lcd.backlightOn()     // Switch the backlight on
+  lcd.backlightOff()    // Switch off the backlight
   ```
 
 ### 7. Screen Shift block
-
-```typescript
-//% blockId='I2C_LCD1620_SHL' block="Shift Left'
-export function shl(): void
-
-//% blockId='I2C_LCD1620_SHR' block="Shift Right'
-export function shr(): void
-```
 
 - 🔹 Description
 
@@ -182,9 +134,9 @@ export function shr(): void
 
 - ✅ Usage example
 
-  ```typescript
-  LCD.shl() // Move the screen to the left
-  LCD.shr() // move the screen to the right
+  ```blocks
+  lcd.shl() // Move the screen to the left
+  lcd.shr() // move the screen to the right
   ```
 
 ## 📜 License
