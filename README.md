@@ -49,8 +49,11 @@ This extension allows you to control an I2C LCD1602 display with the micro:bit.
 - ✅ Usage examples
 
   ```blocks
-  lcd.lcdInit(39)   // Initialize the LCD with I2C address 39 (0x27)
-  lcd.lcdInit(0)    // Initialize LCD after autodetection
+  lcd.lcdInit(lcd.I2CLCDAddress.PCF8574)    // Initialize the LCD with I2C address 39 (0x27)
+  ```
+
+  ```blocks
+  lcd.lcdInit(lcd.I2CLCDAddress.AutoDetect) // Initialize LCD after autodetection
   ```
 
 ### 2. Number display block
