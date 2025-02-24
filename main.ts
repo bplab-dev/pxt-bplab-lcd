@@ -93,6 +93,7 @@ namespace lcd {
     //% blockId="I2C_LCD1620_SET_ADDRESS" block="LCD initialize with Address %addr"
     //% weight=100 blockGap=8
     //% parts=LCD1602_I2C trackArgs=0
+    //% help="https://github.com/bplab-dev/pxt-bplab-lcd?tab=readme-ov-file#1-lcd-initialization-block-lcdlcdinit"
     export function lcdInit(Addr: I2CLCDAddress) {
         if (Addr == 0) i2cAddr = _autoAddr()
         else i2cAddr = Addr
