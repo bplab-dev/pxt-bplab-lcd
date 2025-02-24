@@ -29,11 +29,15 @@ This extension allows you to control an I2C LCD1602 display with the micro:bit.
 | [`I2C_LCD1620_SHL`](#7-screen-shift-block)             | Shift screen to the left                        |
 | [`I2C_LCD1620_SHR`](#7-screen-shift-block)             | Shift screen to the right                       |
 
-### 1. LCD Initialization Block
+### 1. LCD Initialization Block #LCDlcdInit
 
 ```typescript
 //% blockId='I2C_LCD1620_SET_ADDRESS' block="LCD initialize with Address %addr'
 export function LCDInit(Addr: number)
+```
+
+```blocks
+LCD.lcdInit(0)
 ```
 
 - 🔹 Description

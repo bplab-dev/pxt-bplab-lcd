@@ -1,6 +1,6 @@
 /**
-* I2C_LCD1602
-*/
+ * I2C_LCD1602
+ */
 //% weight=1 color=#0fbc11 icon="\uf0ad"
 namespace LCD {
     let i2cAddr: number // 0x3F: PCF8574A, 0x27: PCF8574 
