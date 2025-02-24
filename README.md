@@ -37,7 +37,7 @@ export function LCDInit(Addr: number)
 ```
 
 ```blocks
-LCD.lcdInit(0)
+lcd.lcdInit(0)
 ```
 
 - 🔹 Description

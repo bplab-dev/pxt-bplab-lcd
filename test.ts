@@ -1,6 +1,6 @@
 namespace lcdTest {
     // Set LCD I2C Address
-    const LCD_ADDR = LCD.I2CLCDAddress.PCF8574;  // 39 (0x27) or use LCD.I2CLCDAddress.PCF8574A (63)
+    const LCD_ADDR = lcd.I2CLCDAddress.PCF8574;  // 39 (0x27) or use lcd.I2CLCDAddress.PCF8574A (63)
 
     /**
      * Test LCD initialization
@@ -8,7 +8,7 @@ namespace lcdTest {
      */
     function testInit(): boolean {
         basic.showString("INIT");
-        LCD.lcdInit(LCD_ADDR);
+        lcd.lcdInit(LCD_ADDR);
         basic.pause(500);
         return true;
     }
@@ -19,8 +19,8 @@ namespace lcdTest {
      */
     function testShowString(): boolean {
         basic.showString("STR");
-        LCD.showString("Hello", 0, 0);
-        LCD.showString("World!", 0, 1);
+        lcd.showString("Hello", 0, 0);
+        lcd.showString("World!", 0, 1);
         basic.pause(2000);
         return true;
     }
@@ -31,7 +31,7 @@ namespace lcdTest {
      */
     function testShowNumber(): boolean {
         basic.showString("NUM");
-        LCD.showNumber(1234, 4, 0);
+        lcd.showNumber(1234, 4, 0);
         basic.pause(2000);
         return true;
     }
@@ -42,7 +42,7 @@ namespace lcdTest {
      */
     function testClear(): boolean {
         basic.showString("CLR");
-        LCD.clear();
+        lcd.clear();
         basic.pause(1000);
         return true;
     }
@@ -53,16 +53,16 @@ namespace lcdTest {
      */
     function testOnOff(): boolean {
         basic.showString("ON");
-        LCD.on();
+        lcd.on();
         basic.pause(1000);
-        LCD.showString("ON Test", 0, 0);
+        lcd.showString("ON Test", 0, 0);
         basic.pause(1000);
 
         basic.showString("OFF");
-        LCD.off();
+        lcd.off();
         basic.pause(1000);
 
-        LCD.on(); // Restore LCD ON state
+        lcd.on(); // Restore LCD ON state
         return true;
     }
 
@@ -72,15 +72,15 @@ namespace lcdTest {
      */
     function testBacklight(): boolean {
         basic.showString("BL");
-        LCD.backlightOn();
-        LCD.showString("BL ON", 0, 0);
+        lcd.backlightOn();
+        lcd.showString("BL ON", 0, 0);
         basic.pause(1000);
 
-        LCD.backlightOff();
-        LCD.showString("BL OFF", 0, 1);
+        lcd.backlightOff();
+        lcd.showString("BL OFF", 0, 1);
         basic.pause(1000);
 
-        LCD.backlightOn(); // Restore backlight
+        lcd.backlightOn(); // Restore backlight
         return true;
     }
 
@@ -90,13 +90,13 @@ namespace lcdTest {
      */
     function testShift(): boolean {
         basic.showString("SFT");
-        LCD.showString("Shift Test", 0, 0);
+        lcd.showString("Shift Test", 0, 0);
         for (let i = 0; i < 5; i++) {
-            LCD.shl();
+            lcd.shl();
             basic.pause(500);
         }
         for (let i = 0; i < 5; i++) {
-            LCD.shr();
+            lcd.shr();
             basic.pause(500);
         }
         return true;
