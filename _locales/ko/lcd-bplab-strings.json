@@ -1,4 +1,7 @@
 {
+  "lcd.I2CLCDAddress.AutoDetect|block": "자동 감지",
+  "lcd.I2CLCDAddress.PCF8574A|block": "PCF8574A(0x3F)",
+  "lcd.I2CLCDAddress.PCF8574|block": "PCF8574(0x27)",
   "lcd.backlightOff|block": "백라이트 끄기",
   "lcd.backlightOn|block": "백라이트 켜기",
   "lcd.clear|block": "LCD 지우기",

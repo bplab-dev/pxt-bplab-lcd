@@ -1,4 +1,7 @@
 {
+  "lcd.I2CLCDAddress.AutoDetect|block": "Auto Detect",
+  "lcd.I2CLCDAddress.PCF8574A|block": "PCF8574A(0x3F)",
+  "lcd.I2CLCDAddress.PCF8574|block": "PCF8574(0x27)",
   "lcd.backlightOff|block": "Turn off backlight",
   "lcd.backlightOn|block": "Turn on backlight",
   "lcd.clear|block": "Clear LCD",
@@ -6,8 +9,8 @@
   "lcd.off|block": "Turn off LCD",
   "lcd.on|block": "Turn on LCD",
   "lcd.shl|block": "Shift Left",
-  "lcd.showNumber|block": "show number %n|at x %x|y %y",
-  "lcd.showString|block": "show string %s|at x %x|y %y",
+  "lcd.showNumber|block": "Show number %n|at x %x|y %y",
+  "lcd.showString|block": "Show string %s|at x %x|y %y",
   "lcd.shr|block": "Shift Right",
   "lcd|block": "LCD",
   "{id:category}Lcd": "LCD"
