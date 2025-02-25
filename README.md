@@ -4,6 +4,15 @@
 
 This extension allows you to control an I2C LCD1602 display with the micro:bit.
 
+## Use as Extension
+
+This repository can be added as an **extension** in MakeCode.
+
+- open [https://makecode.microbit.org/](https://makecode.microbit.org/)
+- click on **New Project**
+- click on **Extensions** under the gearwheel menu
+- search for **[bplab-dev/pxt-bplab-lcd]** and import
+
 ## 🚀 Features
 
 - Easily control I2C LCD1602 display from microcontroller
@@ -29,7 +38,7 @@ This extension allows you to control an I2C LCD1602 display with the micro:bit.
 | [`I2C_LCD1620_SHL`](#7-screen-shift-block)             | Shift screen to the left                        |
 | [`I2C_LCD1620_SHR`](#7-screen-shift-block)             | Shift screen to the right                       |
 
-### 1. LCD Initialization Block #lcdlcdInit
+### 1. LCD Initialization Block
 
 - 🔹 Description
 
@@ -154,32 +163,11 @@ We are also leading the way in developing and distributing coding education kits
 
 Visit our websites:
 
-- Korea: https://bplab.kr
-- Global: https://bplab-us.com
-- Japan: https://bplab-jp.com
+- Korea: [https://bplab.kr](https://bplab.kr)
+- Global: [https://bplab-us.com](https://bplab-us.com)
+- Japan: [https://bplab-jp.com](https://bplab-jp.com)
 
----
-
-> Open this page at [https://bplab-dev.github.io/pxt-bplab-lcd/](https://bplab-dev.github.io/pxt-bplab-lcd/)
-
-## Use as Extension
-
-This repository can be added as an **extension** in MakeCode.
-
-- open [https://makecode.microbit.org/](https://makecode.microbit.org/)
-- click on **New Project**
-- click on **Extensions** under the gearwheel menu
-- search for **[https://github.com/bplab-dev/pxt-bplab-lcd]** and import
-
-## Edit this project
-
-To edit this repository in MakeCode.
-
-- open [https://makecode.microbit.org/](https://makecode.microbit.org/)
-- click on **Import** then click on **Import URL**
-- paste **[https://github.com/bplab-dev/pxt-bplab-lcd]** and click import
-
-### Metadata (used for search, rendering)
+## 📍 Metadata (used for search, rendering)
 
 - for PXT/microbit
 
