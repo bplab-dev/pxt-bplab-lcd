@@ -11,7 +11,7 @@ This repository can be added as an **extension** in MakeCode.
 - open [https://makecode.microbit.org/](https://makecode.microbit.org/)
 - click on **New Project**
 - click on **Extensions** under the gearwheel menu
-- search for **[bplab-dev/pxt-bplab-lcd]** and import
+- search for **bplab-dev/pxt-bplab-lcd** and import
 
 ## 🚀 Features
 
@@ -167,7 +167,7 @@ Visit our websites:
 - Global: [https://bplab-us.com](https://bplab-us.com)
 - Japan: [https://bplab-jp.com](https://bplab-jp.com)
 
-## 📍 Metadata (used for search, rendering)
+## 📍 Supported targets
 
 - for PXT/microbit
 
