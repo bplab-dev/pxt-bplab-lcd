@@ -1,5 +1,5 @@
 {
-  "lcd": "I2C LCD 1602",
+  "lcd": "LCD",
   "lcd.backlightOff": "Turn off LCD backlight",
   "lcd.backlightOn": "Turn on LCD backlight",
   "lcd.clear": "Clear all display contents",
