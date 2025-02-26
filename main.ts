@@ -2,6 +2,7 @@
  * I2C LCD 1602
  */
 //% weight=1 color=#0fbc11 icon="\uf0ad"
+//% block="LCD"
 namespace lcd {
     let i2cAddr: number // 0x3F: PCF8574A, 0x27: PCF8574
     let BK: number      // Backlight control (8: ON, 0: OFF)
