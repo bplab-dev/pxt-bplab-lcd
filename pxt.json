@@ -1,7 +1,7 @@
 {
     "name": "lcd-bplab",
     "version": "0.0.21",
-    "description": "",
+    "description": "This extension is made by BPLab to allow you to control the I2C LCD1602 display with micro:bit.",
     "dependencies": {
         "core": "*"
     },
